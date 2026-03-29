@@ -59,16 +59,16 @@ You can install Postman via this website: https://www.postman.com/downloads/
     -   Open another new terminal, edit `ROCKET_PORT` in `.env` to `8003`, then execute `cargo run`.
 
 ## Mandatory Checklists (Subscriber)
--   [ ] Clone https://gitlab.com/ichlaffterlalu/bambangshop-receiver to a new repository.
+-   [✅] Clone https://gitlab.com/ichlaffterlalu/bambangshop-receiver to a new repository.
 -   **STAGE 1: Implement models and repositories**
-    -   [ ] Commit: `Create Notification model struct.`
-    -   [ ] Commit: `Create SubscriberRequest model struct.`
-    -   [ ] Commit: `Create Notification database and Notification repository struct skeleton.`
-    -   [ ] Commit: `Implement add function in Notification repository.`
-    -   [ ] Commit: `Implement list_all_as_string function in Notification repository.`
-    -   [ ] Write answers of your learning module's "Reflection Subscriber-1" questions in this README.
--   **STAGE 3: Implement services and controllers**
-    -   [ ] Commit: `Create Notification service struct skeleton.`
+    -   [✅] Commit: `Create Notification model struct.`
+    -   [✅] Commit: `Create SubscriberRequest model struct.`
+    -   [✅] Commit: `Create Notification database and Notification repository struct skeleton.`
+    -   [✅] Commit: `Implement add function in Notification repository.`
+    -   [✅] Commit: `Implement list_all_as_string function in Notification repository.`
+    -   [] Write answers of your learning module's "Reflection Subscriber-1" questions in this README.
+-   **STAGE 2: Implement services and controllers**
+    -   [] Commit: `Create Notification service struct skeleton.`
     -   [ ] Commit: `Implement subscribe function in Notification service.`
     -   [ ] Commit: `Implement subscribe function in Notification controller.`
     -   [ ] Commit: `Implement unsubscribe function in Notification service.`
@@ -85,5 +85,8 @@ This is the place for you to write reflections:
 ### Mandatory (Subscriber) Reflections
 
 #### Reflection Subscriber-1
+1. Menurut saya, RwLock diperlukan karena data notifikasi disimpan dalam Vec yang bisa diakses oleh beberapa proses. Kita harus menjaga supaya akses ke data itu tetap aman dan RwLock cocok karena daftar notifikasi kemungkinan lebih sering dibaca daripada ditulis. Dengan RwLock, beberapa proses masih bisa membaca data secara bersamaan. Jika menggunakan Mutex, semua akses akan dikunci penuh jadi pembacaan juga harus menunggu.
+
+2. Rust tidak memperbolehkan kita untuk langsung mengubah static variable seperti di Java karena Rust lebih ketat soal keamanan data dan thread safety. Kalau data global bisa diubah sembarangan, bisa muncul masalah sepert data race. Karena itu, di Rust kita bisa menggunakan lazy_static supaya data global tetap aman sata dipakai program.
 
 #### Reflection Subscriber-2
