@@ -66,18 +66,18 @@ You can install Postman via this website: https://www.postman.com/downloads/
     -   [✅] Commit: `Create Notification database and Notification repository struct skeleton.`
     -   [✅] Commit: `Implement add function in Notification repository.`
     -   [✅] Commit: `Implement list_all_as_string function in Notification repository.`
-    -   [] Write answers of your learning module's "Reflection Subscriber-1" questions in this README.
+    -   [✅] Write answers of your learning module's "Reflection Subscriber-1" questions in this README.
 -   **STAGE 2: Implement services and controllers**
-    -   [] Commit: `Create Notification service struct skeleton.`
-    -   [ ] Commit: `Implement subscribe function in Notification service.`
-    -   [ ] Commit: `Implement subscribe function in Notification controller.`
-    -   [ ] Commit: `Implement unsubscribe function in Notification service.`
-    -   [ ] Commit: `Implement unsubscribe function in Notification controller.`
-    -   [ ] Commit: `Implement receive_notification function in Notification service.`
-    -   [ ] Commit: `Implement receive function in Notification controller.`
-    -   [ ] Commit: `Implement list_messages function in Notification service.`
-    -   [ ] Commit: `Implement list function in Notification controller.`
-    -   [ ] Write answers of your learning module's "Reflection Subscriber-2" questions in this README.
+    -   [✅] Commit: `Create Notification service struct skeleton.`
+    -   [✅] Commit: `Implement subscribe function in Notification service.`
+    -   [✅] Commit: `Implement subscribe function in Notification controller.`
+    -   [✅] Commit: `Implement unsubscribe function in Notification service.`
+    -   [✅] Commit: `Implement unsubscribe function in Notification controller.`
+    -   [✅] Commit: `Implement receive_notification function in Notification service.`
+    -   [✅] Commit: `Implement receive function in Notification controller.`
+    -   [✅] Commit: `Implement list_messages function in Notification service.`
+    -   [✅] Commit: `Implement list function in Notification controller.`
+    -   [✅] Write answers of your learning module's "Reflection Subscriber-2" questions in this README.
 
 ## Your Reflections
 This is the place for you to write reflections:
@@ -90,3 +90,8 @@ This is the place for you to write reflections:
 2. Rust tidak memperbolehkan kita untuk langsung mengubah static variable seperti di Java karena Rust lebih ketat soal keamanan data dan thread safety. Kalau data global bisa diubah sembarangan, bisa muncul masalah sepert data race. Karena itu, di Rust kita bisa menggunakan lazy_static supaya data global tetap aman sata dipakai program.
 
 #### Reflection Subscriber-2
+1. Saya sudah sempat explore beberapa yang tidak ada di tutorial seperti src/lib.rs. Saya jadi lebih paham bahwa file tersebut dipakai untuk konfigurasi aplikasi, seperti membaca environment variable dan menyiapkan shared object yang dipakai di beberapa program. Saya juga jadi lebih paham bahwa tidak semua logic ada di controller atau service, karena ada juga bagian penting yang mengatur konfigurasi dasar aplikasi.
+
+2. Menurut saya, Observer pattern memudahkan untuk menambahkan lebih banyak subscriber karena publisher hanya perlu menyimpan data subscriber lalu mengirim notifikasi ke mereka. Jadi saat saya menjalankan beberapa instance Receiver, sistem masih cukup mudah dipakai karena tiap instance hanya perlu subscribe ke topic yang diinginkan. Tetapi kalau ada lebih dari satu instance Main app, sistem akan lebih rumit karena data antar publisher harus tetep sinkron. Jadi kalau menambah subscriber masih mudah, tetapi kalo menambah publisher tidak semudah itu.
+
+3. Saya belum mencoba membuat test sendiri atau menambah dokumentasi di Postman collection. Di tutorial ini, saya lebih fokus memastikan endpoint yang diminta di modul bisa berjalan dengan benar aja. Walaupun begitu, menurut saya fitur test dan dokumentasi di Postman tetap akan berguna, terutama untuk project yang lebih besar agar testing API dan penjelasan endpoint menjadi lebih rapi.
